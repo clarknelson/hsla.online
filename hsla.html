@@ -1,0 +1,53 @@
+<head>
+  <title>hsla.link</title>
+  <meta name="keywords" content="HSLA, HSL, Color, Theme, Pallet, Designer, Maker, Tool, Utility">
+  <meta name="description" content="A web utility designed for picking HSLA colors and creating a color pallet for your next theme.">
+  <meta charset="UTF-8">
+  <meta name="author" content="Clark Nelson">
+</head>
+
+<body>
+  {{> container}}
+  {{> analytics}}
+</body>
+
+<template name="container">
+	<div class="color-picker">
+		<div class="h"><span>Hue</span><div class="selector"></div></div>
+		<div class="s"><span>Saturation</span><div class="selector"></div></div>
+		<div class="l"><span>Lightness</span><div class="selector"></div></div>
+		<div class="a"><span>Transparency</span><div class="selector"></div></div>
+	</div>
+
+	<div class="preview">
+		<h1>HSLA<span>.link</span></h1>
+		<h1>HSLA<span>.link</span></h1>
+		<p>Click to reset alpha</p>
+		<div class="mask"></div>
+		<img src="/img/background.jpeg">
+	</div>
+
+	<div class="output"><input type="text"></div>
+	<footer>
+		<p> Made by <a href="http://clarkis.me/" target="_blank">Clark Nelson</a> using the <a href="https://www.meteor.com/" target="_blank">Meteor</a> JavaScript framework. Fonts used are <a href="http://fontfabric.com/bebas-neue/" target="_blank">Bebas Neue</a> and <a href="http://input.fontbureau.com/preview/" target="_blank">Input Sans</a>. Picture was taken by <a href="https://unsplash.com/hollandmerten" target="_blank">Josefa Holland-Merten</a> and is available on <a href="https://unsplash.com/" target="_blank">Unsplash</a>. Open source and available on GitHub.</p>
+	</footer>
+	<div class="palet">
+		<div class="add"></div>
+			{{#each colors}}
+				<div class="item" style="background: {{hsla}}"></div>
+			{{/each}}
+	</div>
+</template>
+
+<template name="analytics">
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40601201-9', 'auto');
+  ga('send', 'pageview');
+
+	</script>
+</template>
