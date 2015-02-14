@@ -1,14 +1,15 @@
 Colors = new Mongo.Collection("colors");
+Users = new Mongo.Collection("users");
+
 if (Meteor.isClient) {
   // runs when the page is first loaded
-  Template.container.rendered = function(){    
+  Template.container.rendered = function(){  
     Session.setDefault("h", 209);
     Session.setDefault("s", 72);
     Session.setDefault("l", 21);
     Session.setDefault("a", 99);
     placeSelectors(this);
     setHSLA(this);
-    //console.log(this.findAll('.item').style);
     window.onresize = function(){
       setHSLA(this);
       placeSelectors(this);
@@ -37,8 +38,14 @@ if (Meteor.isClient) {
       placeSelectors(template);
       setHSLA(template);
     },
-    'click .output input': function(event, template){
-      template.find('input').select();
+    'click .output input[name="hsla"]': function(event, template){
+      template.find('input[name="hsla"]').select();
+    },
+    'click .output input[name="hex"]': function(event, template){
+      template.find('input[name="hex"]').select();
+    },
+    'click .output input[name="link"]': function(event, template){
+      template.find('input[name="link"]').select();
     },
     'click .palet .item': function(event, template){
       //console.log(Colors.findOne(this._id).h);
@@ -118,9 +125,14 @@ function setHSLA(object){
 
   // adjust the preview window
   object.find('.preview .mask').style.background = getHSLA();
-  object.find('.output input').value = getHSLA();
-  object.find('.output input').style.border = '2px solid '+getHSLA();
-  console.log(object.find('.output input').value = getHSLA());
+
+  object.find('.output input[name="hsla"]').value = getHSLA();
+
+  object.find('.output input[name="hsla"]').style.border = '2px solid '+getHSLA();
+  object.find('.output input[name="hex"]').style.border = '2px solid '+getHSLA();
+  object.find('.output input[name="link"]').style.border = '2px solid '+getHSLA();
+
+  //console.log(object.find('.output input').value = getHSLA());
 
 }
 
