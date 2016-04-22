@@ -3,7 +3,7 @@ Users = new Mongo.Collection("users");
 
 if (Meteor.isClient) {
   // runs when the page is first loaded
-  Template.container.rendered = function(){  
+  Template.container.rendered = function(){
     Session.setDefault("h", 209);
     Session.setDefault("s", 72);
     Session.setDefault("l", 21);
@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     }
     //if (!this.rendered){ // waits until DOM is loaded }
   }
-  
+
   Template.container.events({
     'click .color-picker': function(event, template){
       setHSLA(template);
@@ -71,11 +71,10 @@ if (Meteor.isClient) {
       return Colors.find();
     }
   });
-
 }
 
 // changes the hsla values based on click location
-function setSelector(object,type,ratio){
+function setSelector(object, type, ratio){
     var target = event.clientX+4; // click location
     object.style.left = target+"px";
 
@@ -133,7 +132,6 @@ function setHSLA(object){
   object.find('.output input[name="link"]').style.border = '2px solid '+getHSLA();
 
   //console.log(object.find('.output input').value = getHSLA());
-
 }
 
 if (Meteor.isServer) {

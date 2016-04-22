@@ -68,7 +68,7 @@ $selector-height: 12px;
 	width: 100%;
 	padding: 160px 0;
 	z-index: 90;
-	
+
 	.mask{
 		position: absolute;
 		top: 0;
@@ -83,7 +83,7 @@ $selector-height: 12px;
 		font-size: 108px;
 		line-height: 0.65em;
 		z-index: 200;
-		
+
 		&:first-of-type{ color: black; }
 		&:last-of-type{ color: white; }
 		span{
@@ -115,17 +115,17 @@ $selector-height: 12px;
 		width: 42%;
 		margin: 20px auto;
 		padding: 0 0.6em;
-		
+
 		box-sizing: border-box;
 		outline: none;
 		background: none;
 		border: 2px solid white;
-		
+
 		font-family: 'InputMono', 'Ubuntu Mono', 'OpenSans', sans-serif;
 		line-height: 200%;
 		font-size: 24px;
 		color: white;
-		
+
 	}
 }
 
@@ -145,13 +145,14 @@ $palet-height: 50px;
 		height: $palet-height;
 		float: left;
 		border-right: 3px solid black;
-		
+
 		&:before{
 			content: "+";
 			position: absolute;
+			top: 0;
 			font-family: Helvetica, sans-serif;
 			font-size: $palet-height;
-			line-height: 100%;
+			line-height: $palet-height - 10px;
 			text-align: center;
 			width: 100%;
 		}
